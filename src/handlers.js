@@ -14,7 +14,7 @@ const addBookHandler = (request, h) => {
     if (readPage > pageCount) {
         return h.response({
             status: 'fail',
-            message: 'Gagal menambahkan buku. Halaman yang dibaca tidak boleh lebih besar dari total halaman.'
+            message: 'Gagal menambahkan buku. Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount'
         }).code(400);
     }
 
@@ -95,14 +95,14 @@ const updateBookByIdHandler = (request, h) => {
     if (!name) {
         return h.response({
             status: 'fail',
-            message: 'Gagal memperbarui buku. Mohon mengisi nama buku'
+            message: 'Gagal memperbarui buku. Mohon isi nama buku'
         }).code(400);
     }
 
     if (readPage > pageCount) {
         return h.response({
             status: 'fail',
-            message: 'Gagal memperbarui buku. Halaman yang dibaca tidak boleh lebih besar dari total halaman.'
+            message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount'
         }).code(400);
     }
 
@@ -110,7 +110,7 @@ const updateBookByIdHandler = (request, h) => {
     if (bookIndex === -1) {
         return h.response({
             status: 'fail',
-            message: 'Gagal memperbarui buku. ID buku tidak ditemukan'
+            message: 'Gagal memperbarui buku. Id tidak ditemukan'
         }).code(404);
     }
 
@@ -135,7 +135,7 @@ const deleteBookByIdHandler = (request, h) => {
     if (bookIndex === -1) {
         return h.response({
             status: 'fail',
-            message: 'Buku gagal dihapus. ID buku tidak ditemukan'
+            message: 'Buku gagal dihapus. Id tidak ditemukan'
         }).code(404);
     }
 
